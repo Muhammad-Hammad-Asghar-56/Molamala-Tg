@@ -1,0 +1,27 @@
+{
+    "to": "BogdanoffBrothersofficial",
+    "from": "memecoinssign",
+    "limit": "100\n",
+    "members": [
+        {
+            "user": {
+                "id": 5289110425,
+                "username": "cryptofolk3",
+                "first_name": "Crypto_Folk",
+                "last_name": null,
+                "phone": null
+            },
+            "isAdded": true
+        },
+        {
+            "user": {
+                "id": 1087968824,
+                "username": "GroupAnonymousBot",
+                "first_name": "Group",
+                "last_name": null,
+                "phone": null
+            },
+            "isAdded": true
+        }
+    ]
+}
