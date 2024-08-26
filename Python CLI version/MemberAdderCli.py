@@ -36,7 +36,6 @@ def storeOutput(message:str):
     except IOError as e:
         storeOutput(f"Error writing to file: {e}")
 
-
 api_id = 21578909
 api_hash = 'bc7aa963f8f7979344c9ad4aa10d09b5'
 phone = read_text_file("phoneNum.txt")
@@ -147,7 +146,26 @@ n = 0
 max_peer_flood_errors = 5
 peer_flood_error_count = 0
 
+processed_users = 0
+total_users_to_process = 50  # Limit to 50 users per day
+today = datetime.date.today()
+
 for user in users[0:]:
+    if datetime.date.today() != today: # Check if it's a new day and reset counters if it is
+        today = datetime.date.today()  # Reset the day
+        processed_users = 0  # Reset the user count for the new day
+
+    if processed_users >= total_users_to_process: # If the daily limit is reached, sleep until the next day
+        storeOutput("Daily limit of users reached. Sleeping until the next day...")
+        
+        while datetime.date.today() == today:
+            datetime.time.sleep(3600)  # Sleep for an hour and check again
+        
+        today = datetime.date.today()  # Reset the day
+        processed_users = 0  # Reset the user count for the new day
+    
+    
+    
     n += 1
     if n % 50 == 0:
         sleep(900)
